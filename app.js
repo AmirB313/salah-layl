@@ -277,7 +277,7 @@ function initializeDuaUI() {
     for (let i = 0; i < prayerStep["verses"].length; i++) {
         const verse = prayerStep["verses"][i];
         const verse_card = `
-        <div class="card bg-dark text-light">
+        <div class="card bg-dark text-light mt-3">
             <div class="card-body">
                 <p class="card-text arabic">${verse["verse"]}</p>
                 <p class="card-text">${verse["meaning"]}</p>
