@@ -6,6 +6,9 @@
 
 :root {
     --font-base: "Space Mono", monospace;
+    --font-arabic-elegant : "Noto Kufi Arabic", sans-serif;
+    --font-arabic-reading: "Noto Sans Arabic", sans-serif;
+    --font-arabic-size: 48px;
     --transition: 200ms linear;
     --color-dark: #1f1a38;
     --color-dark-glare: #989ea9;
@@ -13,7 +16,7 @@
 }
 
 body {
-    min-height: 100vh;
+    min-height: 75vh;
     display: grid;
     place-items: center;
     background: #f3f3f3;
@@ -23,8 +26,17 @@ body {
     -webkit-user-select: none;
 }
 
+.arabic-elegant {
+    font-family: var(--font-arabic-elegant);
+}
+
+.arabic {
+    font-family: var(--font-arabic);
+    font-size: var(--font-arabic-size);
+}
+
 [role="progressbar"] {
-    --size: 500px;
+    --size: 95vw;
     --bar-width: 30px;
 
     font-size: 2rem;
@@ -49,7 +61,7 @@ body {
         border-radius: inherit;
         height: calc(var(--size) - var(--bar-width));
         width: calc(var(--size) - var(--bar-width));
-        font-size: 20px;
+        font-size: 14px;
         text-align: center;
     }
 
@@ -73,9 +85,30 @@ body {
     animation-delay: 1000ms;
 }
 
+@media only screen and (min-width: 600px) {
+    [role="progressbar"] {--size: 80vw;}
+}
+
+@media only screen and (min-width: 768px) {
+    [role="progressbar"] {--size: 60vw; font-size: 20px;}
+}
+
+@media only screen and (min-width: 1080px) {
+    [role="progressbar"] {--size: 50vw;}
+}
+
+@media only screen and (min-width: 1200px) {
+    [role="progressbar"] {--size: 40vw; font-size: 22px;}
+}
+
 @keyframes progressComplete {
     to {
         content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUiIGhlaWdodD0iODUiIHZpZXdCb3g9IjAgMCA4NSA4NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM1LjQyMzcgNTMuNzMyN0w2Ny45Nzg3IDIxLjE3NzdMNzIuOTg5NSAyNi4xODQyTDM1LjQxOTUgNjMuNzVMMTIuODg2IDQxLjIxMjJMMTcuODkyNSAzNi4yMDE1TDM1LjQyMzcgNTMuNzMyN1oiIGZpbGw9IiMxZjFhMzgiLz4KPC9zdmc+Cg==");
         background-color: var(--color-success);
     }
+}
+
+.main-menu {
+    display: grid;
+    place-items: center;
 }

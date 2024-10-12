@@ -7,13 +7,144 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Sans+Arabic:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Salat al-Layl</h1>
-    <div class="progressbar">
+    <h1 id="title">Salat al-Layl</h1>
+    <h2 id="header-1" style="display: none;">Pray Salat al-Layl</h2>
+    <h2 id="header-2" style="display: none;">Memorize Supplications</h2>
+    <div class="main-menu">
+        <div class="btn-group-vertical mb-5" role="group">
+            <button type="button" class="btn btn-outline-dark">Pray Salat al-Layl</button>
+            <button type="button" class="btn btn-outline-dark">Memorize Supplications</button>
+        </div>
+        <div id="merits-slides" class="carousel slide container-sm">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#merits-slides" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#merits-slides" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#merits-slides" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#merits-slides" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#merits-slides" data-bs-slide-to="4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body">
+                            <div class="card-title">Tradition 1</div>
+                            <p class="card-text fs-6">
+                                Imam as-Sadiq (AS) has said:
+                                <br>
+                                The reward of every good action that a person with true faith performs has been mentioned in the Quran, except for Salatul Layl, since due to the importance (and high status) of it, Allah (SWT) has not explicitly mentioned it and has only said the following (in regards to it):
+                                <br>
+                                
+                                <figure>
+                                    <blockquote class="blockquote">
+                                        <p class="arabic-elegant">تَتَجَافَىٰ جُنُوبُهُمۡ عَنِ ٱلۡمَضَاجِعِ يَدۡعُونَ رَبَّهُمۡ خَوۡفٗا وَطَمَعٗا وَمِمَّا رَزَقۡنَٰهُمۡ يُنفِقُونَ</p>
+                                        <p>Their sides vacate their beds to supplicate their Lord in fear and hope, and they spend out of what We have provided them.</p>
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">Surah as-Sajdah (32:16)</figcaption>
+                                </figure>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body">
+                            <div class="card-title">Tradition 2</div>
+                            <p class="card-text fs-6">
+                                Purification of the Soul by Salat al-Layl
+                                <br>
+                                Allah (swt) in explaining Salatul Layl and those who stay up during the night (doing Ibadaat) has said:
+                                <br>
+
+                                <figure>
+                                    <blockquote class="blockquote">
+                                        <p class="arabic-elegant">إِنَّ نَاشِئَةَ ٱلَّيۡلِ هِيَ أَشَدُّ وَطۡـٔٗا وَأَقۡوَمُ قِيلًا</p>
+                                        <p>Indeed the watch of the night is firmer in tread and more upright in respect to speech,</p>
+                                        <p class="arabic-elegant">إِنَّ لَكَ فِي ٱلنَّهَارِ سَبۡحٗا طَوِيلٗا</p>
+                                        <p>for indeed during the day you have drawn-out engagements.</p>
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">Surah Muzzammil (73:6-7)</figcaption>
+                                </figure>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body">
+                            <div class="card-title">Tradition 3</div>
+                            <p class="card-text fs-6">
+                                A means of aquiring a Great Maqam with Allah (swt)
+                                <br>
+                                Allah (SWT) says:
+                                <br>
+
+                                <figure>
+                                    <blockquote class="blockquote">
+                                        <p class="arabic-elegant">وَمِنَ ٱلَّيۡلِ فَتَهَجَّدۡ بِهِۦ نَافِلَةٗ لَّكَ عَسَىٰٓ أَن يَبۡعَثَكَ رَبُّكَ مَقَامٗا مَّحۡمُودٗا</p>
+                                        <p>And keep vigil for a part of the night, as a supererogatory [devotion] for you. It may be that your Lord will raise you to a praiseworthy station.</p>
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">Surah Bani Israeel (17:79)</figcaption>
+                                </figure>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body">
+                            <div class="card-title">Tradition 4</div>
+                            <p class="card-text fs-6">
+                                Describing Those Who Stay Up in the Night
+                                <br>
+                                Allah (SWT) says:
+                                <br>
+
+                                <figure>
+                                    <blockquote class="blockquote">
+                                        <p class="arabic-elegant">أَمَّنۡ هُوَ قَٰنِتٌ ءَانَآءَ ٱلَّيۡلِ سَاجِدٗا وَقَآئِمٗا يَحۡذَرُ ٱلۡأٓخِرَةَ وَيَرۡجُواْ رَحۡمَةَ رَبِّهِۦۗ قُلۡ هَلۡ يَسۡتَوِي ٱلَّذِينَ يَعۡلَمُونَ وَٱلَّذِينَ لَا يَعۡلَمُونَۗ إِنَّمَا يَتَذَكَّرُ أُوْلُواْ ٱلۡأَلۡبَٰبِ</p>
+                                        <p>Is he who supplicates in the watches of the night, prostrating and standing, apprehensive of the Hereafter and expecting the mercy of his Lord...? Say, ‘Are those who know equal to those who do not know?’ Only those who possess intellect take admonition.</p>
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">Surah Zumar (39:9)</figcaption>
+                                </figure>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body">
+                            <div class="card-title">Tradition 5</div>
+                            <p class="card-text fs-6">
+                                Sign of True Faith in Allah (SWT) and Belief in the Day of Judgement 
+                                <br>
+                                <br>
+                                Imam Muhammad al-Baqir(AS) has said:
+                                <br>
+                                <br>
+                                "One who has true faith in Allah (SWT) and the last day, will not allow the night to pass into the day without performing Salatul-Witr." 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#merits-slides" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#merits-slides" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            
+        </div>
+    </div>
+    <div class="progressbar" style="display: none;">
         <div class="text-wrapper">
             <i></i>
             <p class="verse">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est accusantium placeat nihil labore aut dolorem voluptatem consectetur perferendis, culpa porro vel eius fuga veritatis ullam beatae ratione suscipit sint! Amet?</p>
@@ -23,5 +154,6 @@
     </div>
 
     <script src="/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
