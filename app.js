@@ -1,6 +1,16 @@
 const progressbar = document.querySelector('.progressbar');
-const progressval = document.querySelector('.progressval');
+const progressval = document.querySelector('#progressval');
+const progressdesc = document.querySelector('#progressdesc');
+const prayerBtn = document.querySelector('#pray-btn');
+const mainMenu = document.querySelector('.main-menu');
+const prayerCtrls = document.querySelector('#prayer-controls');
+const menuNext = document.querySelector('#menu-next');
+const menuPrev = document.querySelector('#menu-prev');
+const extraInfo = document.querySelector('#extra-info');
+
 let progress = 0;
+let index = 0;
+let count = 0;
 
 const prayerInstructions = [
     {
@@ -20,10 +30,10 @@ const prayerInstructions = [
        "description" : `
             <p class="fw-bold">Salat al-Shaf'</p><br>
             <p>
-                The next (2) Rak'ats are also prayed like the morning prayer.<br><br>
-                With the intention of Salat al-Shaf', recite (2) Rak'at with<br> 
+                The next (2) Rak'ats are also prayed like the morning prayer.<br>
+                With the intention of Salat al-Shaf', recite (2) Rak'at with
                 Surah Fatiha followed by Surah al-Nas in the first rak'at.<br>
-                Surah Fatiha followed by Surah al-Falaq in the second rak'at.<br><br>
+                Surah Fatiha followed by Surah al-Falaq in the second rak'at.<br>
                 Do not do qunoot and complete the salah as normal.
             </p>
        `,
@@ -81,14 +91,13 @@ const prayerInstructions = [
         "count" : 300
     },
     {
-        "type" : "instruction",
+        "type" : "instruction-extra",
         "description" : `
             <p class="fw-bold">Recite the following dua (1) time.</p>
             <p class="arabic">رَبِّ اغْفِرْ لِي وَ ارْحَمْنِي وَ تُبْ عَلَيَّ اِنَّكَ اَنْتَ التَّوَّابُ الرَّحِيْمُ</p>
-            <p>Lord, forgive me and have mercy on me, and turn to me, Surely You are the Oft-returning, the Merciful</p><br>
-            <p>Upon completion, you may supplicate to Allah and ask for your Hajat.<p>
-            <p>Complete the salah as normal.<p>
+            <p>Lord, forgive me and have mercy on me, and turn to me, Surely You are the Oft-returning, the Merciful</p>
         `,
+        "extra" : "Upon completion, you may Supplicate Allah and ask for you Hajat.",
         "count" : 1
     },
     {
@@ -243,19 +252,76 @@ function enableProgressbar() {
 }
 
 function updateProgressbar() {
+    const prayerStep = prayerInstructions[index];
     progressbar.setAttribute("aria-valuenow", progress);
     progressbar.style.setProperty('--progress', progress + "%");
-    progressval.innerText = `${progress}%`;
+    progressval.innerText = `${count} / ${prayerStep["count"]}`;
+}
+
+function initializeProgressData() {
+    const prayerStep = prayerInstructions[index];
+    if (prayerStep["type"] === "instruction") {
+        progressbar.style.setProperty('display', 'grid');
+        progressdesc.innerHTML = prayerStep["description"];
+        progressval.innerText = `${count} / ${prayerStep["count"]}`;
+        extraInfo.innerText = "";
+        extraInfo.style.setProperty('display', 'none');
+    } else if (prayerStep["type"] === "instruction-extra") {
+        progressbar.style.setProperty('display', 'grid');
+        progressdesc.innerHTML = prayerStep["description"];
+        progressval.innerText = `${count} / ${prayerStep["count"]}`;
+        extraInfo.innerText = prayerStep["extra"];
+        extraInfo.style.setProperty('display', '');
+    } else {
+        progressbar.style.setProperty('display', 'none');
+        extraInfo.innerText = "";
+        extraInfo.style.setProperty('display', 'none');
+    }
 }
 
 enableProgressbar();
 
-progressbar.addEventListener("click", (e) => {
+prayerBtn.addEventListener("click", () => {
+    mainMenu.style.setProperty('display', 'none');
+    prayerCtrls.style.setProperty('display', '');
+    initializeProgressData();
+})
+
+progressbar.addEventListener("click", () => {
+    const prayerStep = prayerInstructions[index];
     if (progress === 100) {
+        count = 0;
         progress = 0;
+        index += 1;
+        initializeProgressData();
         updateProgressbar();
     } else {
-        progress += 10;
+        count += 1;
+        progress = (count / prayerStep["count"]) * 100;
         updateProgressbar();
     }
+})
+
+menuNext.addEventListener("click", () => {
+    count = 0;
+    progress = 0;
+    if (index + 1 > prayerInstructions.length - 1) {
+        index = 0;
+    } else {
+        index += 1;
+    }
+    initializeProgressData();
+    updateProgressbar();
+})
+
+menuPrev.addEventListener("click", () => {
+    count = 0;
+    progress = 0;
+    if (index - 1 < 0) {
+        index = prayerInstructions.length - 1;
+    } else {
+        index -= 1;
+    }
+    initializeProgressData();
+    updateProgressbar();
 })

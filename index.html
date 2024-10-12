@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Salat al-Layl</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     <h2 id="header-2" style="display: none;">Memorize Supplications</h2>
     <div class="main-menu">
         <div class="btn-group-vertical mb-5" role="group">
-            <button id="#pray-btn" type="button" class="btn btn-outline-dark">Pray Salat al-Layl</button>
+            <button id="pray-btn" type="button" class="btn btn-outline-dark">Pray Salat al-Layl</button>
             <button id="memorize-btn" type="button" class="btn btn-outline-dark">Memorize Supplications</button>
         </div>
         <div id="merits-slides" class="carousel slide container-sm">
@@ -149,9 +149,17 @@
     <div class="progressbar" style="display: none;">
         <div class="text-wrapper">
             <i></i>
-            <p class="verse">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est accusantium placeat nihil labore aut dolorem voluptatem consectetur perferendis, culpa porro vel eius fuga veritatis ullam beatae ratione suscipit sint! Amet?</p>
-            <p class="meaning"></p>
-            <p class="progressval">0%</p>
+            <p id="progressdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est accusantium placeat nihil labore aut dolorem voluptatem consectetur perferendis, culpa porro vel eius fuga veritatis ullam beatae ratione suscipit sint! Amet?</p>
+            <p id="progressval"></p>
+        </div>
+    </div>
+    <div class="container-sm">
+        <p id="extra-info" class="fw-bold" style="display: none;"></p>
+    </div>
+    <div id="prayer-controls" style="display: none;">
+        <div class="btn-group" role="group">
+            <button id="menu-prev" type="button" class="btn btn-danger">Prev</button>
+            <button id="menu-next" type="button" class="btn btn-primary">Next</button>
         </div>
     </div>
 
