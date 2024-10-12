@@ -112,3 +112,9 @@ body {
     display: grid;
     place-items: center;
 }
+
+#prayer-controls {
+    display: grid;
+    place-items: center;
+    margin-top: 1em;
+}

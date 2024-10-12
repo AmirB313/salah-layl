@@ -7,6 +7,8 @@ const prayerCtrls = document.querySelector('#prayer-controls');
 const menuNext = document.querySelector('#menu-next');
 const menuPrev = document.querySelector('#menu-prev');
 const extraInfo = document.querySelector('#extra-info');
+const returnMenu = document.querySelector('#return-menu');
+const duaRoot = document.querySelector('#dua-root');
 
 let progress = 0;
 let index = 0;
@@ -129,9 +131,8 @@ const prayerInstructions = [
     },
     {
         "type" : "dua",
-        "description" : `
-            <p class="fw-bold">Dua Hazeen | Supplication of the Grieved</p>
-        `,
+        "title" : "Dua Hazeen",
+        "description" : "Supplication of the Grieved",
         "verses" : [
             {
                 "verse" : "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
@@ -258,15 +259,48 @@ function updateProgressbar() {
     progressval.innerText = `${count} / ${prayerStep["count"]}`;
 }
 
+function initializeDuaUI() {
+    const prayerStep = prayerInstructions[index];
+    let html = "";
+
+    const header_card = `
+        <div class="card bg-dark text-light">
+            <div class="card-body">
+                <div class="card-title fw-bold">${prayerStep["title"]}</div>
+                <p class="card-text fw-light">${prayerStep["description"]}</p>
+            </div>
+        </div>
+    `;
+
+    html += header_card;
+
+    for (let i = 0; i < prayerStep["verses"].length; i++) {
+        const verse = prayerStep["verses"][i];
+        const verse_card = `
+        <div class="card bg-dark text-light">
+            <div class="card-body">
+                <p class="card-text arabic">${verse["verse"]}</p>
+                <p class="card-text">${verse["meaning"]}</p>
+            </div>
+        </div>
+        `;
+        html += verse_card;
+    }
+
+    duaRoot.innerHTML = html;
+}
+
 function initializeProgressData() {
     const prayerStep = prayerInstructions[index];
     if (prayerStep["type"] === "instruction") {
+        duaRoot.replaceChildren();
         progressbar.style.setProperty('display', 'grid');
         progressdesc.innerHTML = prayerStep["description"];
         progressval.innerText = `${count} / ${prayerStep["count"]}`;
         extraInfo.innerText = "";
         extraInfo.style.setProperty('display', 'none');
     } else if (prayerStep["type"] === "instruction-extra") {
+        duaRoot.replaceChildren();
         progressbar.style.setProperty('display', 'grid');
         progressdesc.innerHTML = prayerStep["description"];
         progressval.innerText = `${count} / ${prayerStep["count"]}`;
@@ -276,6 +310,7 @@ function initializeProgressData() {
         progressbar.style.setProperty('display', 'none');
         extraInfo.innerText = "";
         extraInfo.style.setProperty('display', 'none');
+        initializeDuaUI();
     }
 }
 
@@ -324,4 +359,19 @@ menuPrev.addEventListener("click", () => {
     }
     initializeProgressData();
     updateProgressbar();
+})
+
+returnMenu.addEventListener("click", () => {
+    count = 0;
+    progress = 0;
+    index = 0;
+
+    updateProgressbar();
+
+    duaRoot.replaceChildren();
+    progressbar.style.setProperty('display', 'none');
+    extraInfo.innerText = "";
+    extraInfo.style.setProperty('display', 'none');
+    mainMenu.style.setProperty('display', '');
+    prayerCtrls.style.setProperty('display', 'none');
 })
