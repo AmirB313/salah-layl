@@ -28,17 +28,17 @@ const prayerInstructions = [
         "count" : 4
     },
     {
-       "type" : "instruction",
+       "type" : "instruction-extra",
        "description" : `
             <p class="fw-bold">Salat al-Shaf'</p><br>
             <p>
-                The next (2) Rak'ats are also prayed like the morning prayer.<br>
-                With the intention of Salat al-Shaf', recite (2) Rak'at with
-                Surah Fatiha followed by Surah al-Nas in the first rak'at.<br>
-                Surah Fatiha followed by Surah al-Falaq in the second rak'at.<br>
-                Do not do qunoot and complete the salah as normal.
+                The next (2) Rak'ats are also prayed like the morning prayer.
+                With the intention of Salat al-Shaf', recite (2) Rak'at:<br>
+                &emsp;Surah Fatiha and Surah al-Nas in the first rak'at.<br>
+                &emsp;Surah Fatiha and Surah al-Falaq in the second rak'at.
             </p>
        `,
+       "extra": "Do not do qunoot and complete the salah as normal.",
        "count" : 1
     },
     {
@@ -266,7 +266,7 @@ function initializeDuaUI() {
     const header_card = `
         <div class="card bg-dark text-light">
             <div class="card-body">
-                <div class="card-title fw-bold">${prayerStep["title"]}</div>
+                <div class="card-title h3 fw-bold">${prayerStep["title"]}</div>
                 <p class="card-text fw-light">${prayerStep["description"]}</p>
             </div>
         </div>

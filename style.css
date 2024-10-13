@@ -7,19 +7,24 @@
 :root {
     --font-base: "Space Mono", monospace;
     --font-arabic-elegant : "Noto Kufi Arabic", sans-serif;
-    --font-arabic-reading: "Noto Sans Arabic", sans-serif;
+    --font-arabic-reading: "Noto Naskh Arabic", sans-serif;
     --font-arabic-size: 25px;
     --transition: 200ms linear;
-    --color-dark: #1f1a38;
-    --color-dark-glare: #989ea9;
-    --color-success: #76f7bf;
+    /* --color-dark: #1f1a38;
+    --color-dark-glare: #989ea9; */
+    --color-dark: #00b4d8;
+    --color-dark-glare: #212529;
+    /* --color-success: #76f7bf; */
+    --color-success: #f8f9fa;
 }
 
 body {
-    min-height: 75vh;
-    display: grid;
-    place-items: center;
-    background: #f3f3f3;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background: #f3f3f3; */
     font-family: var(--font-base);
     margin: 0;
     user-select: none;
@@ -31,7 +36,8 @@ body {
 }
 
 .arabic {
-    font-family: var(--font-arabic);
+    font-family: var(--font-arabic-reading);
+    /* font-family: var(--font-arabic-elegant); */
     font-size: var(--font-arabic-size);
 }
 
@@ -57,7 +63,7 @@ body {
     transition: --progress 500ms linear;
 
     .text-wrapper {
-        background: white;
+        background: #f8f9fa;
         border-radius: inherit;
         height: calc(var(--size) - var(--bar-width));
         width: calc(var(--size) - var(--bar-width));
@@ -118,3 +124,8 @@ body {
     place-items: center;
     margin-top: 1em;
 }
+
+h1 {
+    padding: 20px;
+}
+

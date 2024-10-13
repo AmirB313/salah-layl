@@ -7,18 +7,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Sans+Arabic:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Naskh+Arabic:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-secondary text-light">
     <h1 id="title">Salat al-Layl</h1>
-    <h2 id="header-1" style="display: none;">Pray Salat al-Layl</h2>
-    <h2 id="header-2" style="display: none;">Memorize Supplications</h2>
     <div class="main-menu">
         <div class="btn-group-vertical mb-5" role="group">
-            <button id="pray-btn" type="button" class="btn btn-outline-dark">Pray Salat al-Layl</button>
+            <button id="pray-btn" type="button" class="btn btn-light btn-lg">Pray Salat al-Layl</button>
             <!-- <button id="memorize-btn" type="button" class="btn btn-outline-dark">Memorize Supplications</button> -->
         </div>
         <div id="merits-slides" class="carousel slide container-sm">
@@ -147,23 +145,23 @@
         </div>
     </div>
     <div class="progressbar" style="display: none;">
-        <div class="text-wrapper">
+        <div class="text-wrapper text-dark">
             <i></i>
             <p id="progressdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est accusantium placeat nihil labore aut dolorem voluptatem consectetur perferendis, culpa porro vel eius fuga veritatis ullam beatae ratione suscipit sint! Amet?</p>
             <p id="progressval"></p>
         </div>
     </div>
     <div id="dua-root" class="container-fluid"></div>
-    <div class="container-sm">
+    <div class="container-sm text-center mt-3">
         <p id="extra-info" class="fw-bold" style="display: none;"></p>
     </div>
     <div id="prayer-controls" style="display: none;">
         <div class="btn-group" role="group">
-            <button id="menu-prev" type="button" class="btn btn-danger">Prev</button>
+            <button id="menu-prev" type="button" class="btn btn-light">Prev</button>
             <button id="menu-next" type="button" class="btn btn-primary">Next</button>
         </div>
         <div>
-            <button id="return-menu" type="button" class="btn btn-warning mt-1">Return to Main Menu</button>
+            <button id="return-menu" type="button" class="btn btn-info mt-1 mb-1">Return to Main Menu</button>
         </div>
     </div>
 
