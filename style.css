@@ -16,6 +16,7 @@
     --color-dark-glare: #212529;
     /* --color-success: #76f7bf; */
     --color-success: #f8f9fa;
+    --menu-btn-border-color: ##6c757d;
 }
 
 body {
@@ -27,8 +28,8 @@ body {
     /* background: #f3f3f3; */
     font-family: var(--font-base);
     margin: 0;
-    user-select: none;
-    -webkit-user-select: none;
+    /* user-select: none;
+    -webkit-user-select: none; */
 }
 
 .arabic-elegant {
@@ -53,7 +54,6 @@ body {
         var(--color-dark) var(--progress, 0),
         var(--color-dark-glare) 0%
     );
-    margin: 2 rem auto;
     border-radius: 50%;
     margin-top: 0;
 
@@ -129,3 +129,8 @@ h1 {
     padding: 20px;
 }
 
+#top-scroll-btn {
+    position: fixed;
+    top: 50px;
+    left: 87vw;
+}
