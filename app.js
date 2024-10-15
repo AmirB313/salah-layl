@@ -544,6 +544,8 @@ returnMenu.addEventListener("click", () => {
     extraInfo.style.setProperty('display', 'none');
     mainMenu.style.setProperty('display', '');
     prayerCtrls.style.setProperty('display', 'none');
+    topScrollBtn.style.setProperty('display', 'none');
+    bottomScrollBtn.style.setProperty('display', 'none');
     selectedDataQuery = "";
 });
 
