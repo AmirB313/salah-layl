@@ -443,6 +443,7 @@ function initializeProgressData() {
     const prayerStep = data[selectedDataQuery][index];
 
     topScrollBtn.style.setProperty('display', 'none');
+    bottomScrollBtn.style.setProperty('display', 'none');
     prayerCtrlsTop.style.setProperty('display', 'none');
     duaRoot.replaceChildren();
     progressbar.style.setProperty('display', 'grid');
@@ -461,6 +462,7 @@ function initializeProgressData() {
         extraInfo.style.setProperty('display', 'none');
         topScrollBtn.style.setProperty('display', '');
         prayerCtrlsTop.style.setProperty('display', '');
+        bottomScrollBtn.style.setProperty('display', '');
         initializeDuaUI();
     }
 }
