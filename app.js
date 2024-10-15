@@ -342,7 +342,7 @@ and there is neither might nor power save with Allah, the All-high and All-great
             "type" : "dua",
             "title" : "Dua after the Dawn and Sunset Prayers",
             "description" : `
-                Imam Ja\`far as-Sadiq (as) is said the one who desires to enjoy both the worldly life and
+                Imam Ja\`far as-Sadiq (as) is reported to have said the one who desires to enjoy both the worldly life and
                 and the Next World, and one who has eye ache, should say the following prayer after Salah.
             `,
             "verses" : [
