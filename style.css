@@ -126,6 +126,12 @@ h1 {
 
 #top-scroll-btn {
     position: fixed;
-    top: 50px;
-    left: 87vw;
+    top: 70px;
+    right: 10px;
+}
+
+#bottom-scroll-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
 }

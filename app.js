@@ -1,3 +1,4 @@
+const title = document.querySelector('#title');
 const progressbar = document.querySelector('.progressbar');
 const progressval = document.querySelector('#progressval');
 const progressdesc = document.querySelector('#progressdesc');
@@ -11,6 +12,10 @@ const extraInfo = document.querySelector('#extra-info');
 const returnMenu = document.querySelector('#return-menu');
 const duaRoot = document.querySelector('#dua-root');
 const topScrollBtn = document.querySelector('#top-scroll-btn');
+const prayerCtrlsTop = document.querySelector('#prayer-controls-top');
+const menuNextTop = document.querySelector('#menu-next-top');
+const menuPrevTop = document.querySelector('#menu-prev-top');
+const bottomScrollBtn = document.querySelector('#bottom-scroll-btn');
 
 let progress = 0;
 let index = 0;
@@ -436,20 +441,18 @@ function initializeDuaUI() {
 
 function initializeProgressData() {
     const prayerStep = data[selectedDataQuery][index];
+
+    topScrollBtn.style.setProperty('display', 'none');
+    prayerCtrlsTop.style.setProperty('display', 'none');
+    duaRoot.replaceChildren();
+    progressbar.style.setProperty('display', 'grid');
+    progressdesc.innerHTML = prayerStep["description"];
+    progressval.innerText = `${count} / ${prayerStep["count"]}`;
+
     if (prayerStep["type"] === "instruction") {
-        topScrollBtn.style.setProperty('display', 'none');
-        duaRoot.replaceChildren();
-        progressbar.style.setProperty('display', 'grid');
-        progressdesc.innerHTML = prayerStep["description"];
-        progressval.innerText = `${count} / ${prayerStep["count"]}`;
         extraInfo.innerText = "";
         extraInfo.style.setProperty('display', 'none');
     } else if (prayerStep["type"] === "instruction-extra") {
-        topScrollBtn.style.setProperty('display', 'none');
-        duaRoot.replaceChildren();
-        progressbar.style.setProperty('display', 'grid');
-        progressdesc.innerHTML = prayerStep["description"];
-        progressval.innerText = `${count} / ${prayerStep["count"]}`;
         extraInfo.innerText = prayerStep["extra"];
         extraInfo.style.setProperty('display', '');
     } else {
@@ -457,6 +460,7 @@ function initializeProgressData() {
         extraInfo.innerText = "";
         extraInfo.style.setProperty('display', 'none');
         topScrollBtn.style.setProperty('display', '');
+        prayerCtrlsTop.style.setProperty('display', '');
         initializeDuaUI();
     }
 }
@@ -465,6 +469,7 @@ enableProgressbar();
 
 prayerBtn.addEventListener("click", () => {
     selectedDataQuery = "salah-layl";
+    title.innerText = "Pray Salah al-Layl";
     mainMenu.style.setProperty('display', 'none');
     prayerCtrls.style.setProperty('display', '');
     initializeProgressData();
@@ -472,6 +477,7 @@ prayerBtn.addEventListener("click", () => {
 
 fajrTaqeebatBtn.addEventListener("click", () => {
     selectedDataQuery = "fajr-taqeebat";
+    title.innerText = "Fajr Taqeebat";
     mainMenu.style.setProperty('display', 'none');
     prayerCtrls.style.setProperty('display', '');
     initializeProgressData();
@@ -492,7 +498,7 @@ progressbar.addEventListener("click", () => {
     }
 });
 
-menuNext.addEventListener("click", () => {
+function moveMenuNext() {
     count = 0;
     progress = 0;
     if (index + 1 > data[selectedDataQuery].length - 1) {
@@ -502,9 +508,9 @@ menuNext.addEventListener("click", () => {
     }
     initializeProgressData();
     updateProgressbar();
-});
+}
 
-menuPrev.addEventListener("click", () => {
+function moveMenuPrev() {
     count = 0;
     progress = 0;
     if (index - 1 < 0) {
@@ -514,7 +520,13 @@ menuPrev.addEventListener("click", () => {
     }
     initializeProgressData();
     updateProgressbar();
-});
+}
+
+menuNext.addEventListener("click", moveMenuNext);
+menuNextTop.addEventListener("click", moveMenuNext);
+
+menuPrev.addEventListener("click", moveMenuPrev);
+menuPrevTop.addEventListener("click", moveMenuPrev);
 
 returnMenu.addEventListener("click", () => {
     count = 0;
@@ -523,6 +535,7 @@ returnMenu.addEventListener("click", () => {
 
     updateProgressbar();
 
+    title.innerText = "Salah al-Layl";
     duaRoot.replaceChildren();
     progressbar.style.setProperty('display', 'none');
     extraInfo.innerText = "";
@@ -534,4 +547,11 @@ returnMenu.addEventListener("click", () => {
 
 topScrollBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+bottomScrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
 });
