@@ -10,11 +10,8 @@
     --font-arabic-reading: "Noto Naskh Arabic", sans-serif;
     --font-arabic-size: 25px;
     --transition: 200ms linear;
-    /* --color-dark: #1f1a38;
-    --color-dark-glare: #989ea9; */
     --color-dark: #00b4d8;
     --color-dark-glare: #212529;
-    /* --color-success: #76f7bf; */
     --color-success: #f8f9fa;
     --menu-btn-border-color: ##6c757d;
 }
@@ -25,11 +22,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background: #f3f3f3; */
     font-family: var(--font-base);
     margin: 0;
-    /* user-select: none;
-    -webkit-user-select: none; */
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .arabic-elegant {
@@ -38,7 +34,6 @@ body {
 
 .arabic {
     font-family: var(--font-arabic-reading);
-    /* font-family: var(--font-arabic-elegant); */
     font-size: var(--font-arabic-size);
 }
 
